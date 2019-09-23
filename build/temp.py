@@ -4,24 +4,17 @@ from frameQLParser import frameQLParser
 from frameQLLexer import frameQLLexer
 from frameQLParserListener import frameQLParserListener
 from MyListener import MyListener
-import Nodes
+from Nodes.NodeProjection import NodeProjection
+from Nodes.NodeCondition import NodeCondition
+from Nodes.NodeCross import NodeCross
 
-def simple_query_with_aggregate(listener):
-    tree=[]
-    tree.append(Nodes.NodeProjection(attributes=listener.projection_attributes))
-    tree.append(Nodes.NodeCondition(expressions=listener.condition_having))
-    tree.append(Nodes.NodeGroup(attributes=listener.group))
-    tree.append(Nodes.NodeCondition(expressions=listener.condition_where))
-    tree.append(Nodes.NodeCross(relations=listener.cross_relations))
-    for i in range(len(tree)-1):
-        tree[i].children.append(tree[i+1])
-    print(tree[0].attributes)
-    
+
 def simple_query_no_aggregate(listener):
     tree=[]
-    tree.append(Nodes.NodeProjection(attributes=listener.projection_attributes))
-    tree.append(Nodes.NodeCondition(expressions=listener.condition_having))
-    tree.append(Nodes.NodeCross(relations=listener.cross_relations))
+    print(listener.projection_attributes)
+    tree.append(NodeProjection(attributes=listener.projection_attributes))
+    tree.append(NodeCondition(expressions=listener.condition_where))
+    tree.append(NodeCross(relations=listener.cross_relations))
     for i in range(len(tree)-1):
         tree[i].children.append(tree[i+1])
         
@@ -35,10 +28,8 @@ def main(argv):
     walker = ParseTreeWalker()
     print(tree.toStringTree(recog=parser))
     walker.walk(listener,tree)
-    if len(listener.group)>0:
-        simple_query_with_aggregate(listener)
-    else:
-        simple_query_no_aggregate(listener)
+    simple_query_no_aggregate(listener)
+    print(listener.logical_expression[0].rightChild.rightChild)
  
 if __name__ == '__main__':
     main('test.txt')
