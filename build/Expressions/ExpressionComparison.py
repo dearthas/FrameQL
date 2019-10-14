@@ -1,91 +1,43 @@
-from Expression import Expression
-from ExpressionConstant import ExpressionConstant
-from ExpressionTuple import ExpressionTuple
+from .Expression import Expression
+from .ExpressionConstant import ExpressionConstant
+from .ExpressionTuple import ExpressionTuple
 
 class ExpressionComparison(Expression):
-    def __init__(self, leftChild, rightChild,operator):
+    def __init__(self,children,operator):
         self.operator = operator
-        self.leftChild = leftChild
-        self.rightChild = rightChild
+        self.children=children
 
-    def evaluate(self):
-        dataright=self.rightChild.evaluate()
-        dataleft=self.leftChild.evaluate()
-        data=[]
-        if type(self.leftChild)==ExpressionConstant and type(self.rightChild)==ExpressionTuple:
-            if self.operator=='=':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])==dataleft:
-                        data.append(dataright[i])
-            if self.operator=='>':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])>float(dataleft):
-                        data.append(dataright[i])
-            if self.operator=='<':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])<float(dataleft):
-                        data.append(dataright[i])
-            if self.operator=='!=':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])!=dataleft:
-                        data.append(dataright[i])
-            if self.operator=='<=':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])<=float(dataleft):
-                        data.append(dataright[i])
-            if self.operator=='>=':
-                for i in range(len(dataright)):
-                    if self.rightChild.value(dataright[i])>=float(dataleft):
-                        data.append(dataright[i])
-        elif type(self.rightChild)==ExpressionConstant and type(self.leftChild)==ExpressionTuple:
-            if self.operator=='=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])==dataright:
-                        data.append(dataleft[i])
-            if self.operator=='>':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])>float(dataright):
-                        data.append(dataleft[i])
-            if self.operator=='<':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])<float(dataright):
-                        data.append(dataleft[i])
-            if self.operator=='!=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])!=dataright:
-                        data.append(dataleft[i])
-            if self.operator=='>=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])>=float(dataright):
-                        data.append(dataleft[i])
-            if self.operator=='<=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])<=float(dataright):
-                        data.append(dataleft[i])
-        elif type(self.rightChild)==ExpressionTuple and type(self.leftChild)==ExpressionTuple:
-            if self.operator=='=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])==self.rightChild.value(dataright[i]):
-                            data.append(dataleft[i])
-            if self.operator=='>':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])>self.rightChild.value(dataright[i]):
-                        data.append(dataleft[i])
-            if self.operator=='<':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])<self.rightChild.value(dataright[i]):
-                        data.append(dataleft[i])
-            if self.operator=='!=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])!=self.rightChild.value(dataright[i]):
-                        data.append(dataleft[i])
-            if self.operator=='>=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])>=self.rightChild.value(dataright[i]):
-                        data.append(dataleft[i])
-            if self.operator=='<=':
-                for i in range(len(dataleft)):
-                    if self.leftChild.value(dataleft[i])<=self.rightChild.value(dataright[i]):
-                        data.append(dataleft[i])
-        return data
+    def evaluate(self,Tuple):
+        dataleft=self.children[0].evaluate(Tuple)
+        dataright=self.children[1].evaluate(Tuple)
+        if self.operator=='=':
+            if self.children[0].value(dataleft)==self.children[1].value(dataright):
+                return True
+            else:
+                return False
+        if self.operator=='>':
+            if self.children[0].value(dataleft)>self.children[1].value(dataright):
+                return True
+            else:
+                return False
+        if self.operator=='<':
+            if self.children[0].value(dataleft)<self.children[1].value(dataright):
+                return True
+            else:
+                return False
+        if self.operator=='!=':
+            if self.children[0].value(dataleft)!=self.children[1].value(dataright):
+                return True
+            else:
+                return False
+        if self.operator=='<=':
+            if self.children[0].value(dataleft)<=self.children[1].value(dataright):
+                return True
+            else:
+                return False
+        if self.operator=='>=':
+            if self.children[0].value(dataleft)>=self.children[1].value(dataright):
+                return True
+            else:
+                return False
         

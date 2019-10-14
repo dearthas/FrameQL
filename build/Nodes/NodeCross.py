@@ -1,9 +1,8 @@
 from .Node import Node
 
 class NodeCross(Node):
-    def __init__(self, children=[],relations=[]):
-        super().__init__(children)
-        self.relations = relations
+    def __init__(self,data):
+        self.data = data
 
     def processing(self):
-        pass
+        return self.data
