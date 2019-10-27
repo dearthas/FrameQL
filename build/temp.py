@@ -26,18 +26,52 @@ def main(argv):
     listener = MyListener()
     walker = ParseTreeWalker()
     walker.walk(listener,tree)
-    
-    print(tree.toStringTree(recog=parser))
-    
-    ExpressionTree=listener.currentLogicalExpression
-    PlanTree=listener.projectionNode
 
-    print(ExpressionTree.children[0].children[0].attribute)
+    ExpressionTree=listener.FIFO[0]
+    '''
+    print(ExpressionTree.children[0].children[0].children[0].attribute)
+    print(ExpressionTree.children[0].children[0].operator)
+    print(ExpressionTree.children[0].children[0].children[1].data)
+
     print(ExpressionTree.children[0].operator)
-    print(ExpressionTree.children[0].children[1].data)
+    
+    print(ExpressionTree.children[0].children[1].children[0].attribute)
+    print(ExpressionTree.children[0].children[1].operator)
+    print(ExpressionTree.children[0].children[1].children[1].data)
+
+    print(ExpressionTree.operator)
+
     print(ExpressionTree.children[1].children[0].attribute)
     print(ExpressionTree.children[1].operator)
     print(ExpressionTree.children[1].children[1].data)
- 
+    
+    '''
+    print(ExpressionTree.children[1].children[0].children[0].attribute)
+    print(ExpressionTree.children[1].children[0].operator)
+    print(ExpressionTree.children[1].children[0].children[1].data)
+    print(ExpressionTree.children[1].children[1].children[0].attribute)
+    print(ExpressionTree.children[1].children[1].operator)
+    print(ExpressionTree.children[1].children[1].children[1].data)
+
+    print(ExpressionTree.operator)
+
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[0].attribute)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].operator)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[1].data)
+
+    print(ExpressionTree.children[0].children[1].children[0].operator)
+    
+    print(ExpressionTree.children[0].children[1].children[0].children[1].children[0].attribute)
+    print(ExpressionTree.children[0].children[1].children[0].children[1].operator)
+    print(ExpressionTree.children[0].children[1].children[0].children[1].children[1].data)
+
+    print(ExpressionTree.children[0].children[1].operator)
+
+    print(ExpressionTree.children[0].children[1].children[1].children[0].attribute)
+    print(ExpressionTree.children[0].children[1].children[1].operator)
+    print(ExpressionTree.children[0].children[1].children[1].children[1].data)
+    
+    #print(tree.toStringTree(recog=parser))
+
 if __name__ == '__main__':
     main('test.txt')
