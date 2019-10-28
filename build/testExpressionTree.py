@@ -8,17 +8,9 @@ from Nodes.NodeProjection import NodeProjection
 from Nodes.NodeCondition import NodeCondition
 from Nodes.NodeCross import NodeCross
 
-#convert the query so that frameQLLexer can read it
-def convert_query(query):
-    new_query=query.split(' FROM')[0]+'\r\nFROM'+query.split('FROM')[1]
-    new_query=new_query.split(' WHERE')[0]+'\r\nWHERE'+new_query.split('WHERE')[1]
-    new_query=new_query+'\r\n'
-    return new_query
 
 def main(argv):
     input_stream = FileStream(argv)
-    #query=convert_query('SELECT CLASS , REDNESS FROM TAIPAI WHERE CLASS = \'BUS\' AND REDNESS > 200')
-    #input_stream.strdata=query
     lexer = frameQLLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = frameQLParser(stream)
