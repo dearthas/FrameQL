@@ -1,0 +1,13 @@
+i) There are 485 unique values for the "name" column.
+
+ii) split(value,",")[0]
+
+iii) 
+nominal: city
+ordinale: none
+
+iv) contains(value,"GA")
+
+v) 
+value.replace("http://","")
+value.replace("https://","")

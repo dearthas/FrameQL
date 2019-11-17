@@ -1,0 +1,3 @@
+The average node degree is 4.926, it is the average number of edges incident to a node.
+The diameter of the graph is 2, it is shortest distance between the two most distant nodes. 
+The average path length is 1.907 it is the average number of edges between all possible pairs of nodes.

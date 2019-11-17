@@ -11,33 +11,21 @@ class ExpressionComparison(Expression):
         dataleft=self.children[0].evaluate(Tuple)
         dataright=self.children[1].evaluate(Tuple)
         if self.operator=='=':
-            if self.children[0].value(dataleft)==self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)==self.children[1].value(dataright)
+
         if self.operator=='>':
-            if self.children[0].value(dataleft)>self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)>self.children[1].value(dataright)
+
         if self.operator=='<':
-            if self.children[0].value(dataleft)<self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)<self.children[1].value(dataright)
+                
         if self.operator=='!=':
-            if self.children[0].value(dataleft)!=self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)!=self.children[1].value(dataright)
+
         if self.operator=='<=':
-            if self.children[0].value(dataleft)<=self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)<=self.children[1].value(dataright)
+
         if self.operator=='>=':
-            if self.children[0].value(dataleft)>=self.children[1].value(dataright):
-                return True
-            else:
-                return False
+            return self.children[0].value(dataleft)>=self.children[1].value(dataright)
+
         

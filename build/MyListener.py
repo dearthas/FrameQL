@@ -35,7 +35,7 @@ class MyListener(frameQLParserListener):
     
         #Build the expression tree
         self.currentComparisonExpression=None
-        self.arithmeticExpression=None
+        self.currentArithmeticExpression=None
         self.FIFO=[]
 
     #Build the expression tree
@@ -74,7 +74,7 @@ class MyListener(frameQLParserListener):
             return None
         #ExpressionTree
         if (len(ctx.getText().split('='))+len(ctx.getText().split('>'))+len(ctx.getText().split('<'))+len(ctx.getText().split('>='))+len(ctx.getText().split('<=')))==6:
-            self.currentComparisonExpression=ExpressionComparison([None,None],None)
+            self.currentComparisonExpression=ExpressionComparison([],None)
 
     def exitPredicateExpression(self, ctx:frameQLParser.PredicateExpressionContext):
         #Logical Tree
@@ -83,6 +83,7 @@ class MyListener(frameQLParserListener):
         #ExpressionTree
         if (len(ctx.getText().split('='))+len(ctx.getText().split('>'))+len(ctx.getText().split('<'))+len(ctx.getText().split('>='))+len(ctx.getText().split('<=')))==6:
             self.FIFO[-1].children.append(self.currentComparisonExpression)
+            self.currentComparisonExpression=None
     def enterExpressionAtomPredicate(self, ctx:frameQLParser.ExpressionAtomPredicateContext):
         #Logical Tree
         if self.hasJoin==True:
@@ -92,14 +93,23 @@ class MyListener(frameQLParserListener):
         if len(ctx.getText().split('AND'))>1 or len(ctx.getText().split('OR'))>1:
             return
         if (len(ctx.getText().split('+'))+len(ctx.getText().split('-'))+len(ctx.getText().split('*'))+len(ctx.getText().split('/')))==5:
-            self.arithmeticExpression=ExpressionArithmetic([None,None],None)
+            self.currentArithmeticExpression=ExpressionArithmetic([],None)
+
+    def exitExpressionAtomPredicate(self, ctx:frameQLParser.ExpressionAtomPredicateContext):
+        if len(ctx.getText().split('AND'))>1 or len(ctx.getText().split('OR'))>1:
+            return
+        if (len(ctx.getText().split('+'))+len(ctx.getText().split('-'))+len(ctx.getText().split('*'))+len(ctx.getText().split('/')))==5:
+            self.currentComparisonExpression.children.append(self.currentArithmeticExpression)
+            self.currentArithmeticExpression=None
             
+    
     def enterComparisonOperator(self, ctx:frameQLParser.ComparisonOperatorContext):
         #Logical Tree
         if self.hasJoin==True:
             return None
         #ExpressionTree
-        self.currentComparisonExpression.operator=ctx.getText()
+        if self.currentComparisonExpression!=None:
+            self.currentComparisonExpression.operator=ctx.getText()
         
     def enterFullColumnName(self, ctx:frameQLParser.FullColumnNameContext):
         #ExpressionTree
@@ -107,24 +117,26 @@ class MyListener(frameQLParserListener):
             return
         if len(ctx.getText().split('AND'))>1 or len(ctx.getText().split('OR'))>1:
             return
-        if self.currentComparisonExpression.children[0]==None:
-            self.currentComparisonExpression.children[0]=ExpressionTuple(ctx.getText())
-        elif self.currentComparisonExpression.children[0]!=None and self.currentComparisonExpression.children[1]==None:
-            self.currentComparisonExpression.children[1]=ExpressionTuple(ctx.getText())
         
+        if self.currentArithmeticExpression!=None:
+            self.currentArithmeticExpression.children.append(ExpressionTuple(ctx.getText()))
+        elif self.currentComparisonExpression!=None:
+            self.currentComparisonExpression.children.append(ExpressionTuple(ctx.getText()))
+
     def enterConstant(self, ctx:frameQLParser.ConstantContext):
         #ExpressionTree
         if len(self.FIFO)==0:
             return
         if len(ctx.getText().split('AND'))>1 or len(ctx.getText().split('OR'))>1:
             return
-        if self.currentComparisonExpression.children[0]==None:
-            self.currentComparisonExpression.children[0]=ExpressionConstant(ctx.getText())
-        elif self.currentComparisonExpression.children[0]!=None and self.currentComparisonExpression.children[1]==None:
-            self.currentComparisonExpression.children[1]=ExpressionConstant(ctx.getText())
-        
-
-
+        if self.currentArithmeticExpression!=None:
+            self.currentArithmeticExpression.children.append(ExpressionConstant(ctx.getText()))
+        elif self.currentComparisonExpression!=None:
+            self.currentComparisonExpression.children.append(ExpressionConstant(ctx.getText()))
+            
+    def enterMathOperator(self, ctx:frameQLParser.MathOperatorContext):
+        if self.currentArithmeticExpression!=None:
+            self.currentArithmeticExpression.operator=ctx.getText()
     #Build the query plan tree
     def enterSelectElements(self, ctx:frameQLParser.SelectElementsContext):
         self.projectionNode.attributes=ctx.getText()

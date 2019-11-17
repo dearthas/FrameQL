@@ -1,0 +1,510 @@
+[
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column name",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "name",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Carl's Jr. / Green Burrito",
+          "Carl's Jr / Green Burrito",
+          "Carl's Jr - Green Burrito",
+          "Carls Jr. / Green Burrito"
+        ],
+        "to": "Carl's Jr. / Green Burrito"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "McDonald's",
+          "McDonalds",
+          "Mcdonald's",
+          "Mcdonalds"
+        ],
+        "to": "McDonald's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Sonic Drive-In",
+          "Sonic Drive-in",
+          "SONIC Drive-In"
+        ],
+        "to": "Sonic Drive-In"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Carl's Jr.",
+          "Carl's Jr",
+          "Carls Jr"
+        ],
+        "to": "Carl's Jr."
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Chick-fil-A",
+          "Chick-Fil-A",
+          "Chick-fil-a"
+        ],
+        "to": "Chick-fil-A"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "L&L Hawaiian Barbecue",
+          "L&l Hawaiian Barbecue",
+          "Ll Hawaiian Barbecue"
+        ],
+        "to": "L&L Hawaiian Barbecue"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Blake's Lotaburger",
+          "Blake's LotaBurger",
+          "Blakes Lotaburger"
+        ],
+        "to": "Blake's Lotaburger"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "SONIC Drive In",
+          "Sonic Drive In",
+          "Sonic Drive in"
+        ],
+        "to": "Sonic Drive In"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Steak 'n Shake",
+          "Steak 'N Shake",
+          "Steak N Shake"
+        ],
+        "to": "Steak 'n Shake"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "A&W Restaurant",
+          "A&w Restaurant",
+          "Aw Restaurant"
+        ],
+        "to": "A&W Restaurant"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Jimmy John's",
+          "Jimmy Johns"
+        ],
+        "to": "Jimmy John's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "A&W",
+          "A&w"
+        ],
+        "to": "A&W"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Spangle's",
+          "Spangles"
+        ],
+        "to": "Spangle's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Popeyes Louisiana Kitchen",
+          "Popeye's Louisiana Kitchen"
+        ],
+        "to": "Popeyes Louisiana Kitchen"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Thrasher's French Fries",
+          "Thrashers French Fries"
+        ],
+        "to": "Thrasher's French Fries"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Taco Del Mar",
+          "Taco del Mar"
+        ],
+        "to": "Taco Del Mar"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Frugal's",
+          "Frugals"
+        ],
+        "to": "Frugal's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Mc Donald's",
+          "Mc Donalds"
+        ],
+        "to": "McDonald's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Arby's",
+          "Arbys"
+        ],
+        "to": "Arby's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Culver's",
+          "Culvers"
+        ],
+        "to": "Culver's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Checkers",
+          "Checker's"
+        ],
+        "to": "Checkers"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Kum & Go",
+          "Kum Go"
+        ],
+        "to": "Kum & Go"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Dunkin' Donuts",
+          "Dunkin Donuts"
+        ],
+        "to": "Dunkin' Donuts"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Topper's Pizza",
+          "Toppers Pizza"
+        ],
+        "to": "Topper's Pizza"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Blimpie",
+          "BLIMPIE"
+        ],
+        "to": "Blimpie"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "QDOBA Mexican Eats",
+          "Qdoba Mexican Eats"
+        ],
+        "to": "QDOBA Mexican Eats"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "KFC - Kentucky Fried Chicken",
+          "Kfc - Kentucky Fried Chicken"
+        ],
+        "to": "KFC - Kentucky Fried Chicken"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Papa John's Pizza",
+          "Papa Johns Pizza"
+        ],
+        "to": "Papa John's Pizza"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Port Of Subs",
+          "Port of Subs"
+        ],
+        "to": "Port Of Subs"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Popeye's",
+          "Popeyes"
+        ],
+        "to": "Popeye's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "KFC",
+          "Kfc"
+        ],
+        "to": "KFC - Kentucky Fried Chicken"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Subway",
+          "SUBWAY"
+        ],
+        "to": "Subway"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Jack in the Box",
+          "Jack In The Box"
+        ],
+        "to": "Jack in the Box"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Foster's Freeze",
+          "Fosters Freeze"
+        ],
+        "to": "Foster's Freeze"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hardee's",
+          "Hardees"
+        ],
+        "to": "Hardee's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Long John Silver's / A&W",
+          "Long John Silvers / A&W"
+        ],
+        "to": "Long John Silver's / A&W"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Popeye's Chicken & Biscuits",
+          "Popeyes Chicken & Biscuits"
+        ],
+        "to": "Popeye's Chicken & Biscuits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "DQ Grill & Chill",
+          "Dq Grill & Chill"
+        ],
+        "to": "DQ Grill & Chill"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Domino's Pizza",
+          "Dominos Pizza"
+        ],
+        "to": "Domino's Pizza"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Quiznos",
+          "Quizno's +"
+        ],
+        "to": "Quiznos"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "D'Angelo Grilled Sandwiches",
+          "D'angelo Grilled Sandwiches"
+        ],
+        "to": "D'Angelo Grilled Sandwiches"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Papa John's",
+          "Papa Johns"
+        ],
+        "to": "Papa John's Pizza"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Rally's",
+          "Rallys"
+        ],
+        "to": "Rally's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Cook-Out",
+          "Cookout"
+        ],
+        "to": "Cook-Out"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Wendy's",
+          "Wendys"
+        ],
+        "to": "Wendy's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Mr Hero",
+          "Mr. Hero"
+        ],
+        "to": "Mr Hero"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Long John Silver's",
+          "Long John Silvers"
+        ],
+        "to": "Long John Silver's"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hot Dog On A Stick",
+          "Hot Dog on a Stick"
+        ],
+        "to": "Hot Dog On A Stick"
+      }
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column websites using expression grel:split(value,\",\")[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "websites",
+    "expression": "grel:split(value,\",\")[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column GAflag at index 9 based on column province using expression grel:contains(value,\"GA\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "GAflag",
+    "columnInsertIndex": 9,
+    "baseColumnName": "province",
+    "expression": "grel:contains(value,\"GA\")",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column websites using expression grel:value.replace(\"http://\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "websites",
+    "expression": "grel:value.replace(\"http://\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column websites using expression grel:value.replace(\"https://\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "websites",
+    "expression": "grel:value.replace(\"https://\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
