@@ -65,7 +65,8 @@ def main(argv):
     print(ExpressionTree.children[0].children[1].children[1].operator)
     print(ExpressionTree.children[0].children[1].children[1].children[1].data)
     '''
-
+    '''
+    #test4.txt
     print(ExpressionTree.children[0].children[1].children[0].children[0].attribute)
     print(ExpressionTree.children[0].children[1].children[0].operator)
     print(ExpressionTree.children[0].children[1].children[0].children[1].data)
@@ -77,7 +78,20 @@ def main(argv):
     print(ExpressionTree.children[1].children[0].attribute)
     print(ExpressionTree.children[1].operator)
     print(ExpressionTree.children[1].children[1].data)
+    '''
+    '''
+    #test5.txt
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[0].children[0].attribute)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[0].operator)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[0].children[1].data)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].operator)
+    print(ExpressionTree.children[0].children[1].children[0].children[0].children[1].data)
+    print(ExpressionTree.children[0].children[1].children[0].operator)
+    print(ExpressionTree.children[0].children[1].children[0].children[1].data)
+    print(ExpressionTree.children[0].children[1].operator)
+    print(ExpressionTree.children[0].children[1].children[1].data)
+    '''
     #print(tree.toStringTree(recog=parser))
 
 if __name__ == '__main__':
-    main('test4.txt')
+    main('test5.txt')
